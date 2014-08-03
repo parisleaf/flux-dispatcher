@@ -1,6 +1,6 @@
 {
   "name": "leaf-flux-dispatcher",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Flux Dispatcher, with promises",
   "main": "Dispatcher.js",
   "scripts": {
