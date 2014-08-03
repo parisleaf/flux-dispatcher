@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/parisleaf/flux-dispatcher.svg?branch=master)](https://travis-ci.org/parisleaf/flux-dispatcher)
+
 Dispatcher
 ==========
 
