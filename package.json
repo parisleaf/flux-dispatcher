@@ -1,0 +1,35 @@
+{
+  "name": "leaf-flux-dispatcher",
+  "version": "0.0.0",
+  "description": "A Flux Dispatcher, with promises",
+  "main": "Dispatcher.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parisleaf/leaf-dispatcher.git"
+  },
+  "keywords": [
+    "flux",
+    "react",
+    "dispatcher"
+  ],
+  "author": "Andrew Clark <andrew@parisleaf.com> (http://andrewphilipclark.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/parisleaf/leaf-dispatcher/issues"
+  },
+  "homepage": "https://github.com/parisleaf/leaf-dispatcher",
+  "devDependencies": {
+    "jest": "^0.1.37",
+    "jest-cli": "^0.1.17"
+  },
+  "dependencies": {
+    "es6-promise": "^1.0.0",
+    "react-tools": "^0.11.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "./utils/jest-preprocessor.js"
+  }
+}
