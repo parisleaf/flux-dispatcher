@@ -1,12 +1,12 @@
 Dispatcher
-----------
+==========
 
 A Flux dispatcher, with promises.
 
 Based on examples from Facebook's [Flux project](https://github.com/facebook/flux).
 
 Usage
-=====
+-----
 
 ```js
 
