@@ -46,7 +46,6 @@ Dependencies
 
 License
 -------
-MIT
-
-Parisleaf
+MIT  
+Parisleaf  
 [http://parisleaf.com]()
