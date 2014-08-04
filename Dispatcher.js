@@ -16,17 +16,15 @@
 
 var Promise = Promise || require('es6-promise').Promise;
 
-/**
- * Internal variables
- */
-
-// Callbacks added via `register()`
-var _callbacks = [];
-
-// Array of promises to be populated and cleared on each dispatch
-var _promises = [];
-
 class Dispatcher {
+
+  constructor() {
+    // Callbacks added via `register()`
+    this._callbacks = [];
+
+    // Array of promises to be populated and cleared on each dispatch
+    this._promises = [];
+  }
 
   /**
    * Register a callback with the dispatcher.
@@ -34,8 +32,8 @@ class Dispatcher {
    * @returns {Integer} The index of the callback within the _callbacks array.
    */
   register(callback) {
-    _callbacks.push(callback);
-    return _callbacks.length - 1; // index
+    this._callbacks.push(callback);
+    return this._callbacks.length - 1; // index
   }
 
   /**
@@ -54,7 +52,7 @@ class Dispatcher {
     // Populate `_promises` with "empty" promises corresponding to each
     // callback. Promises are created before callbacks are invoked so that
     // waitFor() can reference them regardless of callback order.
-    _promises = _callbacks.map(function(_, i) {
+    this._promises = this._callbacks.map(function(_, i) {
       return new Promise(function(resolve, reject) {
         resolves[i] = resolve;
         rejects[i] = reject;
@@ -63,7 +61,7 @@ class Dispatcher {
 
     // Now that the promises have been created, we can dispatch the payload
     // to the callbacks
-    _callbacks.forEach(function(callback, i) {
+    this._callbacks.forEach(function(callback, i) {
       // Callbacks can return either an object, to resolve, or a promise, to
       // chain. To normalize the response, we wrap it in a promise object and
       // immediately resolve it using Promise.resolve(). The next part is a bit
@@ -83,7 +81,7 @@ class Dispatcher {
     });
 
     // Return a promise that resolves when all the callbacks have completed.
-    return _readyPromise = Promise.all(_promises)
+    return _readyPromise = Promise.all(this._promises)
       .then(function() {
         return payload;
       });
@@ -102,8 +100,8 @@ class Dispatcher {
    *                    have completed.
    */
   waitFor(promiseIndices, callback) {
-    var selectedPromises = promiseIndices.map(function(index) {
-      return _promises[index];
+    var selectedPromises = promiseIndices.map( (index) => {
+      return this._promises[index];
     });
 
     var combinedPromise = Promise.all(selectedPromises);

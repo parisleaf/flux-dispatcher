@@ -6,7 +6,7 @@ describe('Dispatcher', function() {
   var Dispatcher = require('../Dispatcher.js');
 
   beforeEach(function() {
-    AppDispatcher = new Dispatcher;
+    AppDispatcher = new Dispatcher();
   });
 
   it('sends actions to subscribers', function() {
